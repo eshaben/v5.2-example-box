@@ -16,6 +16,7 @@ contract TestMetaCoin {
         MetaCoin meta = MetaCoin(DeployedAddresses.MetaCoin());
 
         uint256 expected = 10000;
+        Console.log("expected:", expected);
 
         Assert.equal(
             meta.getBalance(tx.origin),
