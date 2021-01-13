@@ -16,7 +16,15 @@ contract TestMetaCoin {
         MetaCoin meta = MetaCoin(DeployedAddresses.MetaCoin());
 
         uint256 expected = 10000;
-        Console.log("expected:", expected);
+        // Console.log("expected:", expected); // so this works and `expected: 10000` gets printed to the console
+        Console.log(
+            "initial expected balance of the deployed contract:",
+            expected
+        ); // but this doesn't work, compiling fails, and I get the following error in the console:
+        // /Users/erinshaben/Work/v5.2-example-box/test/TestMetaCoin.sol:20:9:
+        // TypeError: Member "log" not found or not visible after argument-dependent lookup in type(library Console).
+        // Console.log(
+        // ^---------^
 
         Assert.equal(
             meta.getBalance(tx.origin),
